@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asia Masoom · Video Editor, Photo Editor &amp; Content Creator</title>
+  <meta name="description" content="Portfolio of Asia Masoom: reels and event videos, photo editing and content creation.">
+  <meta property="og:title" content="Asia Masoom · Video Editor, Photo Editor &amp; Content Creator">
+  <meta property="og:description" content="Reels, event videos, photo editing and content creation.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/portraits/asia-editorial.jpg">
+  <meta name="theme-color" content="#050505">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <a class="nav-logo" href="#top">Asia Masoom</a>
+    <nav aria-label="Main">
+      <a href="#video">Video</a>
+      <a href="#photo">Photo</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ TITLE CARD ============ -->
+    <section class="title-card" id="top">
+      <p class="label">Edited, shot &amp; created by</p>
+      <div class="portraits">
+        <figure class="portrait side">
+          <img src="assets/portraits/asia-golden.jpg" alt="Asia smiling with two golden tickets under a neon GOLDEN sign" width="960" height="1280">
+        </figure>
+        <figure class="portrait main">
+          <img src="assets/portraits/asia-editorial.jpg" alt="Portrait of Asia Masoom in a black off-shoulder top in front of an ornate mirror" width="1200" height="1600" fetchpriority="high">
+        </figure>
+        <figure class="portrait side">
+          <img src="assets/portraits/asia-mirror.jpg" alt="Mirror selfie of Asia in a brown satin dress" width="960" height="1280">
+        </figure>
+      </div>
+      <h1 class="name"><span>Asia</span><span>Masoom</span></h1>
+      <p class="tagline">Video editor · Photo editor · Content creator · Fashion influencer</p>
+      <div class="actions">
+        <a class="btn" href="#video">▶&nbsp; Watch my work</a>
+        <button class="btn btn-ghost" type="button" id="roll">Roll credits</button>
+      </div>
+    </section>
+
+    <!-- ============ VIDEO & CONTENT ============ -->
+    <!--
+      Each video: data-video = the file (or a YouTube Shorts / TikTok / Instagram link),
+      img = the cover picture shown before it plays.
+    -->
+    <section class="chapter" id="video" aria-labelledby="video-title">
+      <header class="chapter-card">
+        <p class="label">Starring</p>
+        <h2 id="video-title">Video &amp; Content</h2>
+        <p class="chapter-note">Event promos, festival reels, fashion and dance edits, cut for Instagram and made to be watched twice.</p>
+      </header>
+
+      <div class="reels wide">
+        <figure>
+          <button class="reel" type="button" data-play data-video="assets/videos/carpe-diem-promo.mp4" data-title="Carpe Diem 2.0 · Event promo">
+            <img src="assets/covers/carpe-diem-promo.jpg" alt="Carpe Diem event promo: a dancer on a college lawn with animated title text" width="540" height="960" loading="lazy">
+            <span class="poster-play small" aria-hidden="true">▶</span>
+          </button>
+          <figcaption><em>Carpe Diem 2.0</em><br>Event promo · <span class="num">0:45</span></figcaption>
+        </figure>
+        <figure>
+          <button class="reel" type="button" data-play data-video="assets/videos/carpe-diem-flashmob.mp4" data-title="Bruno Mars × Carpe Diem · Flashmob">
+            <img src="assets/covers/carpe-diem-flashmob.jpg" alt="Students gathering under a Bruno Mars sign for a flashmob" width="540" height="960" loading="lazy">
+            <span class="poster-play small" aria-hidden="true">▶</span>
+          </button>
+          <figcaption><em>Bruno Mars × Carpe Diem</em><br>Flashmob · <span class="num">0:31</span></figcaption>
+        </figure>
+        <figure>
+          <button class="reel" type="button" data-play data-video="assets/videos/makar-sankranti.mp4" data-title="Makar Sankranti · Festival reel">
+            <img src="assets/covers/makar-sankranti.jpg" alt="Two friends in festive outfits with a guitar, celebrating Makar Sankranti" width="540" height="960" loading="lazy">
+            <span class="poster-play small" aria-hidden="true">▶</span>
+          </button>
+          <figcaption><em>Makar Sankranti</em><br>Festival reel · <span class="num">0:36</span></figcaption>
+        </figure>
+        <figure>
+          <button class="reel" type="button" data-play data-video="assets/videos/makeup-transition.mp4" data-title="Makeup transition · Beauty reel">
+            <img src="assets/covers/makeup-transition.jpg" alt="Close-up for a makeup transition reel" width="540" height="960" loading="lazy">
+            <span class="poster-play small" aria-hidden="true">▶</span>
+          </button>
+          <figcaption><em>Makeup Transition</em><br>Beauty reel · <span class="num">0:08</span></figcaption>
+        </figure>
+        <figure>
+          <button class="reel" type="button" data-play data-video="assets/videos/festive-saree.mp4" data-title="Festive saree · Fashion reel">
+            <img src="assets/covers/festive-saree.jpg" alt="Woman in a purple festive saree with marigolds behind her" width="540" height="960" loading="lazy">
+            <span class="poster-play small" aria-hidden="true">▶</span>
+          </button>
+          <figcaption><em>Festive Saree</em><br>Fashion reel · <span class="num">0:12</span></figcaption>
+        </figure>
+        <figure>
+          <button class="reel" type="button" data-play data-video="assets/videos/ethnic-wear-details.mp4" data-title="Ethnic wear · Detail shots">
+            <img src="assets/covers/ethnic-wear-details.jpg" alt="Close-up of a pink embroidered dupatta" width="540" height="960" loading="lazy">
+            <span class="poster-play small" aria-hidden="true">▶</span>
+          </button>
+          <figcaption><em>Ethnic Wear</em><br>Detail shots · <span class="num">0:17</span></figcaption>
+        </figure>
+        <figure>
+          <button class="reel" type="button" data-play data-video="assets/videos/parking-lot-dance.mp4" data-title="Parking Lot · Dance reel">
+            <img src="assets/covers/parking-lot-dance.jpg" alt="Girl spinning in an empty parking garage" width="540" height="960" loading="lazy">
+            <span class="poster-play small" aria-hidden="true">▶</span>
+          </button>
+          <figcaption><em>Parking Lot</em><br>Dance reel · <span class="num">0:18</span></figcaption>
+        </figure>
+        <figure>
+          <button class="reel" type="button" data-play data-video="assets/videos/corridor-dance.mp4" data-title="Corridor · Dance reel">
+            <img src="assets/covers/corridor-dance.jpg" alt="Guy in a yellow jersey dancing in a college corridor" width="540" height="960" loading="lazy">
+            <span class="poster-play small" aria-hidden="true">▶</span>
+          </button>
+          <figcaption><em>Corridor</em><br>Dance reel · <span class="num">0:16</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="experience">
+        <h3 class="label">Experience</h3>
+        <div class="role">
+          <p class="role-org">Social Crescent × Masaba Gupta</p>
+          <p class="role-title">Content Creator &amp; Video Editor</p>
+          <p class="role-desc">Created and edited social media content for Masaba Gupta in association with Social Crescent, a marketing agency.</p>
+        </div>
+        <div class="role">
+          <p class="role-org">Janak Fashion</p>
+          <p class="role-title">Social Media Manager</p>
+          <p class="role-desc">Managed the brand's social media end to end: creating content, promoting the brand as an influencer, and modeling its collections.</p>
+        </div>
+        <div class="role">
+          <p class="role-org"><a href="https://www.instagram.com/asiamasoomm/" target="_blank" rel="noopener">@asiamasoomm</a></p>
+          <p class="role-title">Fashion Influencer</p>
+          <p class="role-desc">An experienced fashion influencer, creating styling, outfit and trend content for an engaged Instagram audience.</p>
+        </div>
+        <div class="role">
+          <p class="role-org">Carpe Diem 3.0</p>
+          <p class="role-title">Department Cultural Leader</p>
+          <p class="role-desc">Led my department's cultural team and managed every aspect of its participation, from planning and coordination to the final performances.</p>
+        </div>
+        <div class="role">
+          <p class="role-org">Carpe Diem 2.0</p>
+          <p class="role-title">Department Social Media Head</p>
+          <p class="role-desc">Ran my department's social media for the festival, handling video editing, content creation and the overall online presence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PHOTO ============ -->
+    <section class="chapter" id="photo" aria-labelledby="photo-title">
+      <header class="chapter-card">
+        <p class="label">Also starring</p>
+        <h2 id="photo-title">Photo Editing</h2>
+      </header>
+
+      <div class="gallery wide">
+        <button class="shot" type="button" data-lightbox data-caption="Weverse Con Festival India · Concert">
+          <img src="assets/photos/weverse-con-festival.jpg" alt="Glowing purple Weverse Con Festival India screen above a night-time crowd" width="3120" height="4160" loading="lazy">
+          <span>Weverse Con Festival</span>
+        </button>
+        <button class="shot" type="button" data-lightbox data-caption="The Leela Mumbai · Interiors">
+          <img src="assets/photos/leela-mumbai.jpg" alt="Private dining room at The Leela Mumbai with a gold dome and crystal chandelier" width="720" height="1280" loading="lazy">
+          <span>The Leela Mumbai</span>
+        </button>
+        <button class="shot" type="button" data-lightbox data-caption="Temple bells · Travel">
+          <img src="assets/photos/temple-bells-path.jpg" alt="Red temple walkway lined with hundreds of brass bells under a large tree" width="960" height="1280" loading="lazy">
+          <span>Temple bells</span>
+        </button>
+        <button class="shot" type="button" data-lightbox data-caption="Hill-town market · Travel">
+          <img src="assets/photos/hill-town-market.jpg" alt="Wide-angle view up a busy hill-town market street under a blue, cloudy sky" width="1027" height="1280" loading="lazy">
+          <span>Hill-town market</span>
+        </button>
+        <button class="shot" type="button" data-lightbox data-caption="Bells over the valley · Travel">
+          <img src="assets/photos/temple-bells-valley.jpg" alt="Brass temple bells hanging in front of a hazy mountain valley" width="960" height="1280" loading="lazy">
+          <span>Bells over the valley</span>
+        </button>
+        <button class="shot" type="button" data-lightbox data-caption="Deodar forest · Nature">
+          <img src="assets/photos/deodar-forest.jpg" alt="Tall deodar trees above a green tea garden under a cloudy sky" width="960" height="1280" loading="lazy">
+          <span>Deodar forest</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="chapter about" id="about" aria-labelledby="about-title">
+      <header class="chapter-card">
+        <p class="label">A note from</p>
+        <h2 id="about-title">The Editor</h2>
+      </header>
+      <div class="prose">
+        <p>I'm Asia Masoom, a video editor, photo editor, content creator and fashion influencer. I've created and edited content for Masaba Gupta with Social Crescent, managed social media for Janak Fashion, and share my own styling and fashion content on Instagram as @asiamasoomm.</p>
+        <p>I've also led teams. At Carpe Diem 2.0 I headed my department's social media, and at Carpe Diem 3.0 I was its cultural leader.</p>
+        <p>Because I work on both sides of the camera, I know what makes people stop scrolling. Whether it's a 10-second transition or a full brand campaign, I focus on a strong hook, pacing that hits the beat, and visuals that fit the mood.</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <p class="label">Inquiries</p>
+      <h2 id="contact-title" class="sr-only">Contact</h2>
+      <!-- Email and phone are stored in pieces and put together by js/main.js,
+           so spam bots that scrape the page's code can't read them. -->
+      <p class="email"><span id="email-text" data-user="asiasingh99" data-domain="gmail.com">asiasingh99 [at] gmail [dot] com</span></p>
+      <p class="phone"><a id="phone-link" href="#contact" data-cc="91" data-a="83569" data-b="48485">Call or WhatsApp</a></p>
+      <div class="actions">
+        <button class="btn btn-ghost btn-small" type="button" id="copy-email">Copy email</button>
+        <a class="btn btn-ghost btn-small" id="whatsapp-link" href="#contact" target="_blank" rel="noopener">WhatsApp me</a>
+        <a class="btn btn-ghost btn-small" href="https://www.instagram.com/asiamasoomm/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <!--
+        The form opens the visitor's email app by default.
+        To receive messages directly, create a free form at https://formspree.io
+        and replace YOUR_FORM_ID in the action below.
+      -->
+      <form id="contact-form" class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-type">What do you need?</label>
+          <select id="f-type" name="service">
+            <option>Video editing</option>
+            <option>Photo editing</option>
+            <option>Content creation</option>
+            <option>A bit of everything</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-msg">Tell me about the project</label>
+          <textarea id="f-msg" name="message" rows="4" required></textarea>
+        </div>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-status" id="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="fine">
+    © <span id="year">2026</span> Asia Masoom · No frames were dropped in the making of this website.
+  </footer>
+
+  <!-- Video player -->
+  <dialog id="player" class="modal" aria-label="Video player">
+    <button class="modal-close" type="button" aria-label="Close">×</button>
+    <div class="player-frame" id="player-frame"></div>
+    <p class="modal-caption" id="player-title"></p>
+  </dialog>
+
+  <!-- Photo lightbox -->
+  <dialog id="lightbox" class="modal" aria-label="Photo viewer">
+    <button class="modal-close" type="button" aria-label="Close">×</button>
+    <img id="lightbox-img" src="" alt="">
+    <p class="modal-caption" id="lightbox-caption"></p>
+  </dialog>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

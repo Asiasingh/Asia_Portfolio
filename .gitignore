@@ -1,0 +1,18 @@
+# Secrets: never commit these
+.env
+.env.*
+!.env.example
+
+# Vercel's local project settings
+.vercel
+
+# Full-size original photos (the site uses the resized copies)
+assets/portraits/originals/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.log
+node_modules/
