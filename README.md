@@ -24,9 +24,11 @@ Keep the total number of videos a multiple of 4 so the rows stay full. Instead o
 
 Put it in `assets/photos/` and copy one `<button class="shot">...</button>` block in the PHOTO section.
 
-## Contact form
+## Book an Appointment
 
-The form opens the visitor's email app by default. To get messages straight to your inbox, create a free form at formspree.io and replace `YOUR_FORM_ID` in the form's `action`.
+Visitors choose a service, date, time and meeting type, then press **Book on WhatsApp** or **Book by email**. Their request opens in WhatsApp (or their email app) with every detail filled in and addressed to you; they just press send. No server or extra account is needed.
+
+To change the services or time slots, edit the BOOK AN APPOINTMENT section in `index.html`. Your WhatsApp number and email come from the `data-` attributes in the "Prefer to reach out directly?" block.
 
 ## Put it online with Vercel (free)
 

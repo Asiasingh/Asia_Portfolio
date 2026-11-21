@@ -13,13 +13,15 @@
   var EMAIL = emailEl ? emailEl.getAttribute('data-user') + '@' + emailEl.getAttribute('data-domain') : '';
   if (emailEl) emailEl.textContent = EMAIL;
   var phoneEl = $('#phone-link');
+  var WA_NUMBER = '';
   if (phoneEl) {
     var cc = phoneEl.getAttribute('data-cc');
     var digits = phoneEl.getAttribute('data-a') + phoneEl.getAttribute('data-b');
+    WA_NUMBER = cc + digits;
     phoneEl.textContent = '+' + cc + ' ' + phoneEl.getAttribute('data-a') + ' ' + phoneEl.getAttribute('data-b');
-    phoneEl.href = 'tel:+' + cc + digits;
+    phoneEl.href = 'tel:+' + WA_NUMBER;
     var wa = $('#whatsapp-link');
-    if (wa) wa.href = 'https://wa.me/' + cc + digits;
+    if (wa) wa.href = 'https://wa.me/' + WA_NUMBER;
   }
 
   // ---------- Modals ----------
@@ -189,40 +191,58 @@
     s.addRange(r);
   }
 
-  // ---------- Contact form ----------
-  var form = $('#contact-form');
-  var status = $('#form-status');
-  if (form) {
-    form.addEventListener('submit', function (e) {
+  // ---------- Book an appointment ----------
+  // Builds a booking request and opens it in WhatsApp (or the visitor's email app),
+  // addressed to Asia, with every detail filled in.
+  var book = $('#booking-form');
+  var bookStatus = $('#book-status');
+  if (book) {
+    var dateInput = $('#b-date');
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    var now = new Date();
+    dateInput.min = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+
+    var via = 'whatsapp';
+    $$('button[data-via]', book).forEach(function (b) {
+      b.addEventListener('click', function () { via = b.getAttribute('data-via'); });
+    });
+
+    book.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!form.checkValidity()) {
-        status.textContent = 'Please fill in your name, a valid email and a message.';
-        form.reportValidity();
-        return;
-      }
-      var data = new FormData(form);
-      var endpoint = form.getAttribute('action') || '';
+      if (e.submitter && e.submitter.getAttribute('data-via')) via = e.submitter.getAttribute('data-via');
 
-      // No form service set up yet: open the visitor's email app instead.
-      if (!endpoint || endpoint.indexOf('YOUR_FORM_ID') !== -1) {
-        var to = EMAIL;
-        var subject = encodeURIComponent(data.get('service') + ' inquiry from ' + data.get('name'));
-        var body = encodeURIComponent(data.get('message') + '\n\n' + data.get('name') + '\n' + data.get('email'));
-        window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
-        status.textContent = 'Opening your email app. If nothing happens, email ' + to + ' directly.';
-        return;
-      }
+      var d = new FormData(book);
+      var get = function (k) { return (d.get(k) || '').toString().trim(); };
+      var name = get('name');
+      var date = get('date');
 
-      status.textContent = 'Sending…';
-      fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
-        .then(function (res) {
-          if (!res.ok) throw new Error();
-          form.reset();
-          status.textContent = 'Thanks! Your message is in. I usually reply within a day.';
-        })
-        .catch(function () {
-          status.textContent = 'That didn\'t send. Please try again, or email ' + EMAIL + ' directly.';
-        });
+      if (!name) { bookStatus.textContent = 'Please add your name.'; $('#b-name').focus(); return; }
+      if (!date) { bookStatus.textContent = 'Please choose a preferred date.'; dateInput.focus(); return; }
+      if (date < dateInput.min) { bookStatus.textContent = 'Please choose a date from today onwards.'; dateInput.focus(); return; }
+
+      var niceDate = new Date(date + 'T00:00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+      var lines = [
+        "Hi Asia, I'd like to book an appointment.",
+        '',
+        'Service: ' + get('service'),
+        'Name: ' + name
+      ];
+      if (get('brand')) lines.push('Brand / company: ' + get('brand'));
+      lines.push('Preferred date: ' + niceDate, 'Preferred time: ' + get('time'), 'Meeting type: ' + get('mode'));
+      if (get('budget')) lines.push('Budget: ' + get('budget'));
+      if (get('brief')) lines.push('', 'About the project: ' + get('brief'));
+      var text = lines.join('\n');
+
+      if (via === 'email') {
+        var subject = 'Appointment request: ' + get('service') + ' (' + name + ')';
+        window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
+        bookStatus.textContent = 'Your email app is opening with the request. Press send to confirm. If nothing opens, email ' + EMAIL + '.';
+      } else {
+        var url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text);
+        var win = window.open(url, '_blank');
+        if (win) { win.opener = null; } else { window.location.href = url; }
+        bookStatus.textContent = 'WhatsApp is opening with your request. Press send to confirm your booking.';
+      }
     });
   }
 })();

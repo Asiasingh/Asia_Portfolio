@@ -24,7 +24,7 @@
       <a href="#video">Video</a>
       <a href="#photo">Photo</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact">Book</a>
     </nav>
   </header>
 
@@ -201,50 +201,105 @@
       </div>
     </section>
 
-    <!-- ============ CONTACT ============ -->
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <p class="label">Inquiries</p>
-      <h2 id="contact-title" class="sr-only">Contact</h2>
+    <!-- ============ BOOK AN APPOINTMENT ============ -->
+    <!--
+      No server needed: the booking request opens in WhatsApp (or email)
+      with every detail filled in, sent straight to Asia.
+    -->
+    <section class="chapter booking" id="contact" aria-labelledby="book-title">
+      <header class="chapter-card">
+        <p class="label">Now booking</p>
+        <h2 id="book-title">Book an Appointment</h2>
+        <p class="chapter-note">Choose a service and a time that suits you. I'll personally confirm your slot and we'll talk through your project.</p>
+      </header>
+
+      <form id="booking-form" class="book" novalidate>
+        <fieldset class="book-step">
+          <legend class="label"><span class="step-no">1</span> Choose a service</legend>
+          <div class="services">
+            <label class="service">
+              <input type="radio" name="service" value="Video Editing" checked>
+              <span class="service-name">Video Editing</span>
+              <span class="service-desc">Reels, promos &amp; event edits</span>
+            </label>
+            <label class="service">
+              <input type="radio" name="service" value="Photo Editing">
+              <span class="service-name">Photo Editing</span>
+              <span class="service-desc">Retouching &amp; color grading</span>
+            </label>
+            <label class="service">
+              <input type="radio" name="service" value="Content Creation">
+              <span class="service-name">Content Creation</span>
+              <span class="service-desc">Concept, shoot &amp; edit</span>
+            </label>
+            <label class="service">
+              <input type="radio" name="service" value="Brand Collaboration">
+              <span class="service-name">Brand Collaboration</span>
+              <span class="service-desc">Influencer &amp; modeling</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="book-step">
+          <legend class="label"><span class="step-no">2</span> Your details</legend>
+          <div class="book-grid">
+            <div class="field">
+              <label for="b-name">Your name</label>
+              <input id="b-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="b-brand">Brand or company <span class="opt">(optional)</span></label>
+              <input id="b-brand" name="brand" type="text" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="b-date">Preferred date</label>
+              <input id="b-date" name="date" type="date" required>
+            </div>
+            <div class="field">
+              <label for="b-time">Preferred time</label>
+              <select id="b-time" name="time">
+                <option>Morning (10 am – 12 pm)</option>
+                <option>Afternoon (12 – 4 pm)</option>
+                <option>Evening (4 – 7 pm)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="b-mode">Meeting type</label>
+              <select id="b-mode" name="mode">
+                <option>Video call</option>
+                <option>Phone call</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="b-budget">Budget <span class="opt">(optional)</span></label>
+              <input id="b-budget" name="budget" type="text" placeholder="e.g. ₹10,000">
+            </div>
+            <div class="field wide-field">
+              <label for="b-brief">About your project <span class="opt">(optional)</span></label>
+              <textarea id="b-brief" name="brief" rows="3" placeholder="What do you need, and by when?"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="book-actions">
+          <button class="btn" type="submit" data-via="whatsapp">Book on WhatsApp</button>
+          <button class="btn btn-ghost" type="submit" data-via="email">Book by email</button>
+        </div>
+        <p class="form-status" id="book-status" aria-live="polite">Your request opens with all these details filled in. Just press send.</p>
+      </form>
+
       <!-- Email and phone are stored in pieces and put together by js/main.js,
            so spam bots that scrape the page's code can't read them. -->
-      <p class="email"><span id="email-text" data-user="asiasingh99" data-domain="gmail.com">asiasingh99 [at] gmail [dot] com</span></p>
-      <p class="phone"><a id="phone-link" href="#contact" data-cc="91" data-a="83569" data-b="48485">Call or WhatsApp</a></p>
-      <div class="actions">
-        <button class="btn btn-ghost btn-small" type="button" id="copy-email">Copy email</button>
-        <a class="btn btn-ghost btn-small" id="whatsapp-link" href="#contact" target="_blank" rel="noopener">WhatsApp me</a>
-        <a class="btn btn-ghost btn-small" href="https://www.instagram.com/asiamasoomm/" target="_blank" rel="noopener">Instagram</a>
+      <div class="direct">
+        <p class="label">Prefer to reach out directly?</p>
+        <p class="email"><span id="email-text" data-user="asiasingh99" data-domain="gmail.com">asiasingh99 [at] gmail [dot] com</span></p>
+        <p class="phone"><a id="phone-link" href="#contact" data-cc="91" data-a="83569" data-b="48485">Call or WhatsApp</a></p>
+        <div class="actions">
+          <button class="btn btn-ghost btn-small" type="button" id="copy-email">Copy email</button>
+          <a class="btn btn-ghost btn-small" id="whatsapp-link" href="#contact" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-ghost btn-small" href="https://www.instagram.com/asiamasoomm/" target="_blank" rel="noopener">Instagram</a>
+        </div>
       </div>
-
-      <!--
-        The form opens the visitor's email app by default.
-        To receive messages directly, create a free form at https://formspree.io
-        and replace YOUR_FORM_ID in the action below.
-      -->
-      <form id="contact-form" class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-        <div class="field">
-          <label for="f-name">Name</label>
-          <input id="f-name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" required>
-        </div>
-        <div class="field">
-          <label for="f-type">What do you need?</label>
-          <select id="f-type" name="service">
-            <option>Video editing</option>
-            <option>Photo editing</option>
-            <option>Content creation</option>
-            <option>A bit of everything</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-msg">Tell me about the project</label>
-          <textarea id="f-msg" name="message" rows="4" required></textarea>
-        </div>
-        <button class="btn" type="submit">Send message</button>
-        <p class="form-status" id="form-status" aria-live="polite"></p>
-      </form>
     </section>
   </main>
 
